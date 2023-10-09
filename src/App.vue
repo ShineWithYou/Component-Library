@@ -1,17 +1,19 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, onMounted } from 'vue'
+import Button from './components/Button/Button.vue'
+import type { ButtonInstance } from './components/Button/types'
+const buttonRef = ref<ButtonInstance | null>(null)
+onMounted(() => {
+  if (buttonRef.value) {
+    console.log('buttonRef', buttonRef.value.ref);
+  }
+})
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <Button type="primary" plain disabled ref="buttonRef">Test</Button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>

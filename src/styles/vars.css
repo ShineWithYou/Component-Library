@@ -1,0 +1,99 @@
+:root {
+    /* colors */
+    --zyt-color-white: #ffffff;
+    --zyt-color-black: #000000;
+    --zyt-color-primary: #409eff;
+    --zyt-color-primary-light-3: #79bbff;
+    --zyt-color-primary-light-5: #a0cfff;
+    --zyt-color-primary-light-7: #c6e2ff;
+    --zyt-color-primary-light-8: #d9ecff;
+    --zyt-color-primary-light-9: #ecf5ff;
+    --zyt-color-primary-dark-2: #337ecc;
+    --zyt-color-success: #67c23a;
+    --zyt-color-success-light-3: #95d475;
+    --zyt-color-success-light-5: #b3e19d;
+    --zyt-color-success-light-7: #d1edc4;
+    --zyt-color-success-light-8: #e1f3d8;
+    --zyt-color-success-light-9: #f0f9eb;
+    --zyt-color-success-dark-2: #529b2e;
+    --zyt-color-warning: #e6a23c;
+    --zyt-color-warning-light-3: #eebe77;
+    --zyt-color-warning-light-5: #f3d19e;
+    --zyt-color-warning-light-7: #f8e3c5;
+    --zyt-color-warning-light-8: #faecd8;
+    --zyt-color-warning-light-9: #fdf6ec;
+    --zyt-color-warning-dark-2: #b88230;
+    --zyt-color-danger: #f56c6c;
+    --zyt-color-danger-light-3: #f89898;
+    --zyt-color-danger-light-5: #fab6b6;
+    --zyt-color-danger-light-7: #fcd3d3;
+    --zyt-color-danger-light-8: #fde2e2;
+    --zyt-color-danger-light-9: #fef0f0;
+    --zyt-color-danger-dark-2: #c45656;
+    --zyt-color-error: #f56c6c;
+    --zyt-color-error-light-3: #f89898;
+    --zyt-color-error-light-5: #fab6b6;
+    --zyt-color-error-light-7: #fcd3d3;
+    --zyt-color-error-light-8: #fde2e2;
+    --zyt-color-error-light-9: #fef0f0;
+    --zyt-color-error-dark-2: #c45656;
+    --zyt-color-info: #909399;
+    --zyt-color-info-light-3: #b1b3b8;
+    --zyt-color-info-light-5: #c8c9cc;
+    --zyt-color-info-light-7: #dedfe0;
+    --zyt-color-info-light-8: #e9e9eb;
+    --zyt-color-info-light-9: #f4f4f5;
+    --zyt-color-info-dark-2: #73767a;
+    --zyt-bg-color: #ffffff;
+    --zyt-bg-color-page: #f2f3f5;
+    --zyt-bg-color-overlay: #ffffff;
+    --zyt-fill-color: #f0f2f5;
+    --zyt-fill-color-light: #f5f7fa;
+    --zyt-fill-color-lighter: #fafafa;
+    --zyt-fill-color-extra-light: #fafcff;
+    --zyt-fill-color-dark: #ebedf0;
+    --zyt-fill-color-darker: #e6e8eb;
+    --zyt-fill-color-blank: #ffffff;
+    --zyt-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, .04), 0px 8px 20px rgba(0, 0, 0, .08);
+    --zyt-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, .12);
+    --zyt-box-shadow-lighter: 0px 0px 6px rgba(0, 0, 0, .12);
+    --zyt-box-shadow-dark: 0px 16px 48px 16px rgba(0, 0, 0, .08), 0px 12px 32px rgba(0, 0, 0, .12), 0px 8px 16px -8px rgba(0, 0, 0, .16);
+
+    --zyt-overlay-color: rgba(0, 0, 0, .8);
+    --zyt-overlay-color-light: rgba(0, 0, 0, .7);
+    --zyt-overlay-color-lighter: rgba(0, 0, 0, .5);
+    --zyt-mask-color: rgba(255, 255, 255, .9);
+    --zyt-mask-color-extra-light: rgba(255, 255, 255, .3);
+
+    /* border */
+    --zyt-border-width: 1px;
+    --zyt-border-style: solid;
+    --zyt-border-color-hover: var(--zyt-text-color-disabled);
+    --zyt-border: var(--zyt-border-width) var(--zyt-border-style) var(--zyt-border-color);
+    --zyt-border-color: #dcdfe6;
+    --zyt-border-color-light: #e4e7ed;
+    --zyt-border-color-lighter: #ebeef5;
+    --zyt-border-color-extra-light: #f2f6fc;
+    --zyt-border-color-dark: #d4d7de;
+    --zyt-border-color-darker: #cdd0d6;
+    --zyt-svg-monochrome-grey: var(--zyt-border-color);
+    --zyt-border-radius-base: 4px;
+    --zyt-border-radius-small: 2px;
+    --zyt-border-radius-round: 20px;
+    --zyt-border-radius--circle: 100%;
+
+    /* font */
+    --zyt-font-size-extra-large: 20px;
+    --zyt-font-size-large: 18px;
+    --zyt-font-size-medium: 16px;
+    --zyt-font-size-base: 14px;
+    --zyt-font-size-small: 13px;
+    --zyt-font-size-extra-small: 12px;
+    --zyt-font-weight-primary: 500;
+    --zyt-fontfont-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB" "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+
+    /* disabled */
+    --zyt-disabled-bg-color: var(--zyt-fill-color-light);
+    --zyt-disabled-text-color: var(--zyt-text-color-placeholder);
+    --zyt-disabled-border-color: var(--zyt-border-color-light);
+}
