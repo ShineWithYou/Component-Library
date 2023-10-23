@@ -90,7 +90,8 @@
     --zyt-font-size-small: 13px;
     --zyt-font-size-extra-small: 12px;
     --zyt-font-weight-primary: 500;
-    --zyt-fontfont-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB" "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    --zyt-font-color-primary: var(--zyt-color-black);
+    --zyt-font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB" "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 
     /* disabled */
     --zyt-disabled-bg-color: var(--zyt-fill-color-light);

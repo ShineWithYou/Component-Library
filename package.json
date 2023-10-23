@@ -18,6 +18,8 @@
     "@vue/eslint-config-typescript": "^11.0.3",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "postcss-comment": "^2.0.0",
+    "postcss-nested": "^6.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-eslint": "^1.8.1",

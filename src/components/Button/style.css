@@ -1,0 +1,5 @@
+.zyt-button {
+    --zyt-button-font-weight: var(--zyt-font-weight-primary);
+    --zyt-button-border-color: var(--zyt-border-color);
+    --zyt-button-bg-color: var(--zyt-fill-color-blank);
+}

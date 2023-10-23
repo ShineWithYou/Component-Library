@@ -1,0 +1,75 @@
+body {
+    font-family: var(--zyt-font-family);
+    font-weight: 400;
+    font-size: var(--zyt-font-size-base);
+    color: var(--zyt-font-color-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: var(--zyt-color-primary);
+    text-decoration: none;
+
+    &:hover, &:focus {
+        color: var(--zyt-color-primary-light-3);
+    }
+    
+    &:active {
+        color: var(--zyt-color-primary-dark-2);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--zyt-font-color-primary);
+    font-weight: inherit;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+h1 {
+    font-size: calc(--zyt-font-size-base + 6px);
+}
+
+h2 {
+    font-size: calc(--zyt-font-size-base + 4px);
+}
+
+h3 {
+    font-size: calc(--zyt-font-size-base + 2px);
+}
+
+h4,
+h5,
+h6,
+p {
+    font-size: inherit;
+}
+
+sub,
+sup {
+    font-size: calc(--zyt-font-size-base - 1px);
+}
+
+small {
+    font-size: calc(--zyt-font-size-base - 2px);
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid var(--zyt-border-color-lighter);
+}
