@@ -19,6 +19,7 @@
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
     "postcss-comment": "^2.0.0",
+    "postcss-each": "^1.1.0",
     "postcss-nested": "^6.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",

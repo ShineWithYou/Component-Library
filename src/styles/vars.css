@@ -47,6 +47,11 @@
     --zyt-bg-color: #ffffff;
     --zyt-bg-color-page: #f2f3f5;
     --zyt-bg-color-overlay: #ffffff;
+    --zyt-text-color-primary: #303133;
+    --zyt-text-color-regular: #606266;
+    --zyt-text-color-secondary: #909399;
+    --zyt-text-color-placeholder: #a8abb2;
+    --zyt-text-color-disabled: #c0c4cc;
     --zyt-fill-color: #f0f2f5;
     --zyt-fill-color-light: #f5f7fa;
     --zyt-fill-color-lighter: #fafafa;
@@ -90,7 +95,6 @@
     --zyt-font-size-small: 13px;
     --zyt-font-size-extra-small: 12px;
     --zyt-font-weight-primary: 500;
-    --zyt-font-color-primary: var(--zyt-color-black);
     --zyt-font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB" "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 
     /* disabled */

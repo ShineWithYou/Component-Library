@@ -2,4 +2,83 @@
     --zyt-button-font-weight: var(--zyt-font-weight-primary);
     --zyt-button-border-color: var(--zyt-border-color);
     --zyt-button-bg-color: var(--zyt-fill-color-blank);
+    --zyt-button-text-color: var( --zyt-text-color-regular);
+    --zyt-button-disabled-text-color: var(--zyt-disabled-text-color);
+    --zyt-button-disabled-bg-color: var(--zyt-disabled-bg-color);
+    --zyt-button-disabled-border-color: var(--zyt-disabled-border-color);
+    --zyt-button-hover-text-color: var(--zyt-color-primary);
+    --zyt-button-hover-bg-color: var(--zyt-color-primary-light-9);
+    --zyt-button-hover-border-color: var(--zyt-color-primary-light-7);
+    --zyt-button-active-text-color: var(--zyt-button-hover-text-color);
+    --zyt-button-active-bg-color: var(--zyt-button-hover-bg-color);
+    --zyt-button-active-border-color: var(--zyt-color-primary);
+    --zyt-button-active-color: var( --zyt-text-color-primary);
+    --zyt-button-outline-color: var(--zyt-color-primary-light-5);
 }
+.zyt-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--zyt-button-text-color);
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    transition: .1s;
+    font-weight: var(--zyt-button-font-weight);
+    user-select: none;
+    vertical-align: middle;
+    background-color: var(--zyt-button-bg-color);
+    border: var(--zyt-border);
+    border-color: var(--zyt-button-border-color);
+    padding: 6px 14px;
+    font-size: var(--zyt-font-size-base);
+    border-radius: var(--zyt-border-radius-base);
+    & + & {
+        margin-left: 12px;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--zyt-button-hover-text-color);
+        border-color: var(--zyt-button-hover-border-color);
+        background-color: var(--zyt-button-hover-bg-color);
+        outline: none;
+    }
+
+    &:active {
+        color: var(--zyt-button-active-text-color);
+        border-color: var(--zyt-button-active-border-color);
+        background-color: var(--zyt-button-active-bg-color);
+        outline: none;
+    }
+    
+    &.is-plain {
+        --zyt-button-hover-text-color: var(--zyt-color-primary);
+        --zyt-button-hover-bg-color: var(--zyt-fill-color-blank);
+        --zyt-button-hover-border-color: var(--zyt-color-primary);
+    }
+
+    &.is-round {
+        border-radius: var(--zyt-border-radius-round);
+    }
+
+    &.is-circle {
+        border-radius: 50%;
+        padding: 8px;
+    }
+
+    &.is-disabled, &.is-disabled:hover, &.is-disabled:focus,
+    &[disabled], &[disabled]:hover, &[disabled]:focus {
+        color: var(--zyt-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+        background-color: var(--zyt-disabled-bg-color);
+        border-color: var(--zyt-disabled-border-color);
+    }
+}
+
+/* @each $val in primary,success,warning,info,danger */

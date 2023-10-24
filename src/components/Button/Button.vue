@@ -37,8 +37,5 @@ defineExpose({
 </script>
 
 <style>
-.zyt-button {
-	background-color: var(--main-bg-color);
-}
-
+@import url(./style.css);
 </style>

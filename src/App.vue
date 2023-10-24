@@ -12,7 +12,10 @@ onMounted(() => {
 
 <template>
   <div>
-    <Button type="primary" plain disabled ref="buttonRef">Test</Button>
+    <Button ref="buttonRef">Test</Button>
+    <Button plain>Test plain</Button>
+    <Button circle>Test circle</Button>
+    <Button round disabled>Test</Button>
   </div>
 </template>
 
