@@ -16,6 +16,24 @@ onMounted(() => {
     <Button plain>Test plain</Button>
     <Button circle>Test circle</Button>
     <Button round disabled>Test</Button>
+    <br>
+    <br>
+    <Button type="primary">Primary</Button>
+    <Button type="success">Success</Button>
+    <Button type="info">Info</Button>
+    <Button type="warning">Warning</Button>
+    <Button type="danger">Danger</Button>
+    <br>
+    <br>
+    <Button type="primary" plain>Primary</Button>
+    <Button type="success" plain>Success</Button>
+    <Button type="info" plain>Info</Button>
+    <Button type="warning" plain>Warning</Button>
+    <Button type="danger" plain>Danger</Button>
+    <br>
+    <br>
+    <Button plain size="large">Large</Button>
+    <Button plain size="small">Small</Button>
   </div>
 </template>
 
