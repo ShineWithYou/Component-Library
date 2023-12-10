@@ -2,7 +2,11 @@
 import { ref, onMounted } from 'vue'
 import Button from './components/Button/Button.vue'
 import type { ButtonInstance } from './components/Button/types'
+import Collapse from './components/Collapse/Collapse.vue'
+import CollapseItem from './components/Collapse/CollapseItem.vue'
+// import type { CollapseItemProps } from './components/Collapse/types'
 const buttonRef = ref<ButtonInstance | null>(null)
+const openedVal = ref(['a'])
 onMounted(() => {
   if (buttonRef.value) {
     console.log('buttonRef', buttonRef.value.ref);
@@ -34,6 +38,23 @@ onMounted(() => {
     <br>
     <Button plain size="large">Large</Button>
     <Button plain size="small">Small</Button>
+    <br>
+    <br>
+    <Collapse v-model="openedVal" accordion>
+      <CollapseItem name="a">
+        <template #title>
+          <h1>zyt title</h1>
+        </template>
+        <h1>zyt headline title</h1>
+        <div>this is aaaaaaaaa</div>
+      </CollapseItem>
+      <CollapseItem name="b" title="zyt title b">
+        <div>this is bbbbbbbbb</div>
+      </CollapseItem>
+      <CollapseItem name="c" title="zyt title c" disabled>
+        <div>this is ccccccccc</div>
+      </CollapseItem>
+    </Collapse>
   </div>
 </template>
 
