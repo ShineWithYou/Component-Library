@@ -4,7 +4,7 @@ import Button from './components/Button/Button.vue'
 import type { ButtonInstance } from './components/Button/types'
 import Collapse from './components/Collapse/Collapse.vue'
 import CollapseItem from './components/Collapse/CollapseItem.vue'
-// import type { CollapseItemProps } from './components/Collapse/types'
+import Icon from './components/Icon/Icon.vue'
 const buttonRef = ref<ButtonInstance | null>(null)
 const openedVal = ref(['a'])
 onMounted(() => {
@@ -40,6 +40,10 @@ onMounted(() => {
     <Button plain size="small">Small</Button>
     <br>
     <br>
+    <Button type="primary" plain size="large" loading>loading...</Button>
+    <Button type="primary" plain size="large" icon="arrow-up">icon</Button>
+    <br>
+    <br>
     <Collapse v-model="openedVal" accordion>
       <CollapseItem name="a">
         <template #title>
@@ -55,6 +59,7 @@ onMounted(() => {
         <div>this is ccccccccc</div>
       </CollapseItem>
     </Collapse>
+    <Icon icon="user-secret" size="2xl" spin type="danger" />
   </div>
 </template>
 

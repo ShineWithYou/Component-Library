@@ -83,6 +83,9 @@
     background-color: var(--zyt-disabled-bg-color);
     border-color: var(--zyt-disabled-border-color);
   }
+  [class*=zyt-icon] + span {
+    margin-left: 6px;
+  }
 }
 
 /* @each $val in primary,success,warning,info,danger */

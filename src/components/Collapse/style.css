@@ -33,6 +33,12 @@
   }
   &.is-active {
     border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+  .header-angle {
+    transition: transform var(--zyt-transition-duration);
   }
 }
 .zyt-collapse-item__content {
@@ -47,5 +53,5 @@
 }
 
 .slide-enter-active, .slide-leave-active {
-  transition: height .5s ease-in-out;
+  transition: height var(--zyt-transition-duration) ease-in-out;
 }

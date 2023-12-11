@@ -15,6 +15,7 @@
     @click="handleClick"
   >
     <slot name="title">{{ title }}</slot>
+    <Icon icon="angle-right" class="header-angle" />
   </div>
   <Transition name="slide" v-on="transitionEvents">
     <div class="zyt-collapse-item__wrapper" v-show="isActive">
@@ -33,6 +34,7 @@
 import { inject, computed } from "vue";
 import { collapseContextKey } from "./types";
 import type { CollapseItemProps } from "./types";
+import Icon from '../Icon/Icon.vue'
 defineOptions({
   name: "zytCollapseItem",
 });

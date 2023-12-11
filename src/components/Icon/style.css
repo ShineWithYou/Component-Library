@@ -1,0 +1,16 @@
+.zyt-icon {
+  --zyt-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--zyt-icon-color);
+  font-size: inherit;
+}
+
+@each $val in primary,success,warning,danger,info {
+  .zyt-icon--$(val) {
+    --zyt-icon-color: var(--zyt-color-$(val));
+  }
+}
