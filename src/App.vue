@@ -5,6 +5,7 @@ import type { ButtonInstance } from './components/Button/types'
 import Collapse from './components/Collapse/Collapse.vue'
 import CollapseItem from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
+import Tooltip from './components/Tooltip/Tooltip.vue'
 const buttonRef = ref<ButtonInstance | null>(null)
 const openedVal = ref(['a'])
 onMounted(() => {
@@ -16,7 +17,11 @@ onMounted(() => {
 
 <template>
   <div>
-    <Button ref="buttonRef">Test</Button>
+    <Tooltip content="hello zyt" trigger="click">
+      <Button ref="buttonRef">Test</Button>
+    </Tooltip>
+    <br>
+    <br>
     <Button plain>Test plain</Button>
     <Button circle>Test circle</Button>
     <Button round disabled>Test</Button>
@@ -60,6 +65,8 @@ onMounted(() => {
       </CollapseItem>
     </Collapse>
     <Icon icon="user-secret" size="2xl" spin type="danger" />
+    <br>
+    <br>
   </div>
 </template>
 
