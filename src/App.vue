@@ -1,18 +1,26 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import Button from './components/Button/Button.vue'
-import type { ButtonInstance } from './components/Button/types'
-import Collapse from './components/Collapse/Collapse.vue'
-import CollapseItem from './components/Collapse/CollapseItem.vue'
-import Icon from './components/Icon/Icon.vue'
-import Tooltip from './components/Tooltip/Tooltip.vue'
-const buttonRef = ref<ButtonInstance | null>(null)
-const openedVal = ref(['a'])
+import { ref, onMounted, h } from 'vue';
+import Button from './components/Button/Button.vue';
+import type { ButtonInstance } from './components/Button/types';
+import Collapse from './components/Collapse/Collapse.vue';
+import CollapseItem from './components/Collapse/CollapseItem.vue';
+import Icon from './components/Icon/Icon.vue';
+import Tooltip from './components/Tooltip/Tooltip.vue';
+import Dropdown from './components/Dropdown/Dropdown.vue';
+import type { MenuOption } from './components/Dropdown/types';
+const buttonRef = ref<ButtonInstance | null>(null);
+const openedVal = ref(['a']);
+const options: MenuOption[] = [
+  { key: 1, label: h('b','item1 is bold') },
+  { key: 2, label: 'item2', disabled: true },
+  { key: 3, label: 'item3', divided: true },
+  { key: 4, label: 'item4' },
+];
 onMounted(() => {
   if (buttonRef.value) {
     console.log('buttonRef', buttonRef.value.ref);
   }
-})
+});
 </script>
 
 <template>
@@ -20,35 +28,37 @@ onMounted(() => {
     <Tooltip content="hello zyt" trigger="click">
       <Button ref="buttonRef">Test</Button>
     </Tooltip>
-    <br>
-    <br>
-    <Button plain>Test plain</Button>
+    <br />
+    <br />
+    <Dropdown placement="bottom" trigger="click" :menu-options="options">
+      <Button plain>Test plain</Button>
+    </Dropdown>
     <Button circle>Test circle</Button>
     <Button round disabled>Test</Button>
-    <br>
-    <br>
+    <br />
+    <br />
     <Button type="primary">Primary</Button>
     <Button type="success">Success</Button>
     <Button type="info">Info</Button>
     <Button type="warning">Warning</Button>
     <Button type="danger">Danger</Button>
-    <br>
-    <br>
+    <br />
+    <br />
     <Button type="primary" plain>Primary</Button>
     <Button type="success" plain>Success</Button>
     <Button type="info" plain>Info</Button>
     <Button type="warning" plain>Warning</Button>
     <Button type="danger" plain>Danger</Button>
-    <br>
-    <br>
+    <br />
+    <br />
     <Button plain size="large">Large</Button>
     <Button plain size="small">Small</Button>
-    <br>
-    <br>
+    <br />
+    <br />
     <Button type="primary" plain size="large" loading>loading...</Button>
     <Button type="primary" plain size="large" icon="arrow-up">icon</Button>
-    <br>
-    <br>
+    <br />
+    <br />
     <Collapse v-model="openedVal" accordion>
       <CollapseItem name="a">
         <template #title>
@@ -65,8 +75,8 @@ onMounted(() => {
       </CollapseItem>
     </Collapse>
     <Icon icon="user-secret" size="2xl" spin type="danger" />
-    <br>
-    <br>
+    <br />
+    <br />
   </div>
 </template>
 
