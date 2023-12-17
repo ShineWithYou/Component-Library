@@ -63,7 +63,7 @@ const close = () => {
   emits('visible-change', false);
 }
 const openDebounce = debounce(open, props.openDelay);
-const closeDebounce = debounce(open, props.closeDelay);
+const closeDebounce = debounce(close, props.closeDelay);
 
 const finalOpenDebounce = () => {
   closeDebounce.cancel();
@@ -90,6 +90,7 @@ const attachEvent = () => {
 }
 attachEvent();
 clickOutside(tooltipNode, () => {
+  debugger;
   if (props.trigger === 'click' && isOpen.value && !props.manual) {
     finalCloseDebounce();
   }
@@ -123,8 +124,8 @@ watch(isOpen, (newVal) => {
 }, { flush: 'post' })
 
 defineExpose<TooltipInstance>({
-  'show': open,
-  'hide': close
+  'show': finalOpenDebounce,
+  'hide': finalCloseDebounce
 })
 
 onUnmounted(() => {
