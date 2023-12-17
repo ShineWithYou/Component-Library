@@ -81,7 +81,6 @@ const changePopper = () => {
   }
 }
 const attachEvent = () => {
-  debugger;
   if (props.trigger === 'hover') {
     events['mouseenter'] = finalOpenDebounce;
     outerEvents['mouseleave'] = finalCloseDebounce;
