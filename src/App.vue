@@ -1,24 +1,26 @@
 <script setup lang="ts">
-import { ref, onMounted, h } from 'vue';
-import Button from './components/Button/Button.vue';
-import type { ButtonInstance } from './components/Button/types';
-import Collapse from './components/Collapse/Collapse.vue';
-import CollapseItem from './components/Collapse/CollapseItem.vue';
-import Icon from './components/Icon/Icon.vue';
-import Tooltip from './components/Tooltip/Tooltip.vue';
-import Dropdown from './components/Dropdown/Dropdown.vue';
-import type { MenuOption } from './components/Dropdown/types';
+import { ref, onMounted, h } from "vue";
+import Button from "./components/Button/Button.vue";
+import type { ButtonInstance } from "./components/Button/types";
+import Collapse from "./components/Collapse/Collapse.vue";
+import CollapseItem from "./components/Collapse/CollapseItem.vue";
+import Icon from "./components/Icon/Icon.vue";
+import Tooltip from "./components/Tooltip/Tooltip.vue";
+import Dropdown from "./components/Dropdown/Dropdown.vue";
+import type { MenuOption } from "./components/Dropdown/types";
+import { createMessgae } from "./components/Message/method";
 const buttonRef = ref<ButtonInstance | null>(null);
-const openedVal = ref(['a']);
+const openedVal = ref(["a"]);
 const options: MenuOption[] = [
-  { key: 1, label: h('b','item1 is bold') },
-  { key: 2, label: 'item2', disabled: true },
-  { key: 3, label: 'item3', divided: true },
-  { key: 4, label: 'item4' },
+  { key: 1, label: h("b", "item1 is bold") },
+  { key: 2, label: "item2", disabled: true },
+  { key: 3, label: "item3", divided: true },
+  { key: 4, label: "item4" },
 ];
 onMounted(() => {
+  createMessgae({ message: "zyt message", duration: 0 });
   if (buttonRef.value) {
-    console.log('buttonRef', buttonRef.value.ref);
+    console.log("buttonRef", buttonRef.value.ref);
   }
 });
 </script>
