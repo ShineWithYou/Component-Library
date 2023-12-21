@@ -90,7 +90,6 @@ const attachEvent = () => {
 }
 attachEvent();
 clickOutside(tooltipNode, () => {
-  debugger;
   if (props.trigger === 'click' && isOpen.value && !props.manual) {
     finalCloseDebounce();
   }

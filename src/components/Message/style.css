@@ -1,0 +1,55 @@
+.zyt-message {
+  --zyt-message-bg-color: var(--zyt-color-info-light-9);
+  --zyt-message-border-color: var(--zyt-border-color-lighter);
+  --zyt-message-padding: 12px 16px;
+  --zyt-message-close-size: 16px;
+  --zyt-message-close-icon-color: var(--zyt-text-color-placeholder);
+  --zyt-message-close-hover-color: var(--zyt-text-color-secondary);
+}
+.zyt-message {
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    box-sizing: border-box;
+    border-radius: var(--zyt-border-radius-base);
+    border-width: var(--zyt-border-width);
+    border-style: var(--zyt-border-style);
+    border-color: var(--zyt-message-border-color);
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    background-color: var(--zyt-message-bg-color);
+    padding: var(--zyt-message-padding);
+    display: flex;
+    align-items: center;
+    transition: top var(--zyt-transition-duration), opacity var(--zyt-transition-duration), transform var(--zyt-transition-duration);
+    .zyt-message__content {
+      color: var(--zyt-message-text-color);
+      overflow-wrap: anywhere;
+    }
+    &.is-close .zyt-message__content {
+      padding-right: 30px;
+    }
+    .zyt-message__close {
+      display: flex;
+      align-items: center;
+    }
+    .zyt-message__close svg {
+      cursor: pointer;
+    }
+  }
+  @each $val in info,success,warning,error { 
+    .zyt-message--$(val) {
+      --zyt-message-bg-color: var(--zyt-color-$(val)-light-9);
+      --zyt-message-border-color: var(--zyt-color-$(val)-light-8);
+      --zyt-message-text-color: var(--zyt-color-$(val));
+      .zyt-message__close {
+        --zyt-icon-color: var(--zyt-color-$(val));
+      }
+    }
+  }
+  .zyt-message.fade-up-enter-from,
+  .zyt-message.fade-up-leave-to {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }

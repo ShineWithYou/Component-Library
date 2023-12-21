@@ -18,7 +18,10 @@ const options: MenuOption[] = [
   { key: 4, label: "item4" },
 ];
 onMounted(() => {
-  createMessgae({ message: "zyt message", duration: 0 });
+  createMessgae({ message: "zyt message 111111", duration: 0, type: 'info', showClose: true });
+  createMessgae({ message: "zyt message 222222", duration: 0, type: 'success' });
+  createMessgae({ message: "zyt message 333333", duration: 0, type: 'warning' });
+  createMessgae({ message: "zyt message 444444", duration: 0, type: 'error' });
   if (buttonRef.value) {
     console.log("buttonRef", buttonRef.value.ref);
   }
