@@ -15,7 +15,7 @@
     :autofocus="autofocus"
     :type="nativeType"
   >
-    <Icon icon="spinner" class="fa-spin" v-if="loading" />
+    <Icon icon="spinner" spin v-if="loading" />
     <Icon :icon="icon" v-if="icon" />
     <span>
       <slot />
