@@ -9,6 +9,7 @@
       'is-append': $slots.append,
       'is-prefix': $slots.prefix,
       'is-suffix': $slots.suffix,
+      'is-focus': isFocus,
     }"
   >
     <!-- input -->
@@ -22,10 +23,47 @@
         <span v-if="$slots.prefix" class="zyt-input__prefix">
           <slot name="prefix" />
         </span>
-        <input class="zyt-input__inner" :type="type" :disabled="disabled" />
+        <input
+          class="zyt-input__inner"
+          ref="inputRef"
+          v-bind="attrs"
+          v-model="innerValue"
+          :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
+          :disabled="disabled"
+          :readonly="readonly"
+          :autocomplete="autocomplete"
+          :placeholder="placeholder"
+          :autofocus="autofocus"
+          :form="form"
+          @input="handleInput"
+          @change="handleChange"
+          @focus="handleFocus"
+          @blur="handleBlur"
+        />
         <!-- suffix slot -->
-        <span v-if="$slots.suffix" class="zyt-input__suffix">
+        <span
+          v-if="$slots.suffix || showClear || showPasswordArea"
+          class="zyt-input__suffix"
+        >
           <slot name="suffix" />
+          <Icon
+            v-if="showClear"
+            icon="circle-xmark"
+            class="zyt-input__clear"
+            @click="clear"
+          />
+          <Icon
+            icon="eye"
+            v-if="showPasswordArea && passwordVisible"
+            class="zyt-input__password"
+            @click="togglePasswordVisible"
+          />
+          <Icon
+            icon="eye-slash"
+            v-if="showPasswordArea && !passwordVisible"
+            class="zyt-input__password"
+            @click="togglePasswordVisible"
+          />
         </span>
       </div>
       <!-- append slot -->
@@ -35,15 +73,83 @@
     </template>
     <!-- textarea -->
     <template v-else>
-      <textarea class="zyt-textarea__wrapper" :disabled="disabled" />
+      <textarea
+        v-bind="attrs"
+        ref="inputRef"
+        class="zyt-textarea__wrapper"
+        :disabled="disabled"
+        :readonly="readonly"
+        :autocomplete="autocomplete"
+        :placeholder="placeholder"
+        :autofocus="autofocus"
+        :form="form"
+        @input="handleInput"
+        @change="handleChange"
+        @focus="handleFocus"
+        @blur="handleBlur"
+      />
     </template>
   </div>
 </template>
 <script setup lang="ts">
-import type { InputProps } from './types';
-
+import { ref, watch, computed, useAttrs } from 'vue';
+import type { Ref } from 'vue';
+import type { InputProps, InputEmits } from './types';
+import Icon from '../Icon/Icon.vue';
 defineOptions({
   name: 'zytInput',
+  inheritAttrs: false,
 });
-withDefaults(defineProps<InputProps>(), { type: 'text' });
+const props = withDefaults(defineProps<InputProps>(), {
+  type: 'text',
+  autocomplete: 'off',
+});
+const emits = defineEmits<InputEmits>();
+const attrs = useAttrs();
+const innerValue = ref(props.modelValue);
+const isFocus = ref(false);
+const passwordVisible = ref(false);
+const inputRef = ref() as Ref<HTMLInputElement>;
+
+const showClear = computed(
+  () =>
+    props.clearable && !props.disabled && !!innerValue.value && isFocus.value
+);
+const showPasswordArea = computed(
+  () => props.showPassword && !props.disabled && !!innerValue.value
+);
+const togglePasswordVisible = () => {
+  passwordVisible.value = !passwordVisible.value;
+};
+const handleInput = () => {
+  emits('update:modelValue', innerValue.value);
+  emits('input', innerValue.value);
+};
+const handleChange = () => {
+  emits('change', innerValue.value);
+};
+const handleFocus = (event: FocusEvent) => {
+  isFocus.value = true;
+  emits('focus', event);
+};
+const handleBlur = (event: FocusEvent) => {
+  isFocus.value = false;
+  emits('blur', event);
+};
+const clear = () => {
+  innerValue.value = '';
+  emits('update:modelValue', '');
+  emits('clear');
+  emits('input', '');
+  emits('change', '');
+};
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    innerValue.value = newVal;
+  }
+);
+defineExpose({
+  ref: inputRef,
+});
 </script>
