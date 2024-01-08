@@ -7,10 +7,12 @@ import CollapseItem from "./components/Collapse/CollapseItem.vue";
 import Icon from "./components/Icon/Icon.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
 import Dropdown from "./components/Dropdown/Dropdown.vue";
+import Switch from "./components/Switch/Switch.vue";
 import type { MenuOption } from "./components/Dropdown/types";
 import { createMessgae } from "./components/Message/method";
 const buttonRef = ref<ButtonInstance | null>(null);
 const openedVal = ref(["a"]);
+const switchVal = ref(false);
 const options: MenuOption[] = [
   { key: 1, label: h("b", "item1 is bold") },
   { key: 2, label: "item2", disabled: true },
@@ -82,6 +84,7 @@ onMounted(() => {
     <Icon icon="user-secret" size="2xl" spin type="danger" />
     <br />
     <br />
+    <Switch :model-value="switchVal" active-text="111" inactive-text="222"></Switch>
   </div>
 </template>
 

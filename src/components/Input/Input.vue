@@ -44,6 +44,7 @@
         <span
           v-if="$slots.suffix || showClear || showPasswordArea"
           class="zyt-input__suffix"
+          @click="keepFocus"
         >
           <slot name="suffix" />
           <Icon
@@ -51,6 +52,7 @@
             icon="circle-xmark"
             class="zyt-input__clear"
             @click="clear"
+            @mousedown.prevent="NOOP"
           />
           <Icon
             icon="eye"
@@ -92,7 +94,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, computed, useAttrs } from 'vue';
+import { ref, watch, computed, useAttrs, nextTick } from 'vue';
 import type { Ref } from 'vue';
 import type { InputProps, InputEmits } from './types';
 import Icon from '../Icon/Icon.vue';
@@ -121,6 +123,10 @@ const showPasswordArea = computed(
 const togglePasswordVisible = () => {
   passwordVisible.value = !passwordVisible.value;
 };
+const keepFocus = async () => {
+  await nextTick();
+  inputRef.value.focus();
+};
 const handleInput = () => {
   emits('update:modelValue', innerValue.value);
   emits('input', innerValue.value);
@@ -143,6 +149,7 @@ const clear = () => {
   emits('input', '');
   emits('change', '');
 };
+const NOOP = () => {};
 watch(
   () => props.modelValue,
   (newVal) => {
