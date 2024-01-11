@@ -1,0 +1,77 @@
+.zyt-select {
+    --zyt-select-item-hover-bg-color: var(--zyt-fill-color-light);
+    --zyt-select-item-font-size: var(--zyt-font-size-base);
+    --zyt-select-item-font-color: var(--zyt-text-color-regular);
+    --zyt-select-item-selected-font-color: var(--zyt-color-primary);
+    --zyt-select-item-disabled-font-color: var(--zyt-text-color-placeholder);
+    --zyt-select-input-focus-border-color: var(--zyt-color-primary);
+  }
+  
+  .zyt-select {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+    .zyt-tooltip .zyt-tooltip__popper {
+      padding: 0;
+    }
+    .zyt-input.is-focus .zyt-input__wrapper {
+      box-shadow: 0 0 0 1px var(--zyt-select-input-focus-border-color) inset !important;
+    }
+    .zyt-input {
+      .header-angle {
+        transition: transform var(--zyt-transition-duration);
+        &.is-active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  
+    .zyt-input__inner {
+      cursor: pointer;
+    }
+    .zyt-select__nodata, .zyt-select__loading {
+      padding: 10px 0;
+      margin: 0;
+      text-align: center;
+      color: var(--zyt-text-color-secondary);
+      font-size: var(--zyt-select-font-size);
+    }
+    .zyt-select__menu {
+      list-style: none;
+      margin: 6px 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .zyt-select__menu-item { 
+      margin: 0;
+      font-size: var(--zyt-select-item-font-size);
+      padding: 0 32px 0 20px;
+      position: relative;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--zyt-select-item-font-color);
+      height: 34px;
+      line-height: 34px;
+      box-sizing: border-box;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--zyt-select-item-hover-bg-color);
+      }
+      &.is-selected {
+        color: var(--zyt-select-item-selected-font-color);
+        font-weight: 700;    
+      }
+      &.is-highlighted {
+        background-color: var(--zyt-select-item-hover-bg-color);
+      }
+      &.is-disabled {
+        color: var(--zyt-select-item-disabled-font-color);
+        cursor: not-allowed;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+  
+    }
+  }
