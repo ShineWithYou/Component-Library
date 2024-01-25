@@ -1,7 +1,7 @@
 import type { VNode } from "vue";
 export type RenderLabelFunc = (option: SelectOption) => VNode;
 export type CustomFilterFunc = (value: string) => SelectOption[];
-export type CustomFilterRemoteFunc = (value: string) => SelectOption[];
+export type CustomFilterRemoteFunc = (value: string) => Promise<SelectOption[]>;
 
 export interface SelectOption {
   label: string;

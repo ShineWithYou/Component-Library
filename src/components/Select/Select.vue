@@ -103,7 +103,7 @@ const props = withDefaults(defineProps<SelectProps>(), {
 });
 const emits = defineEmits<SelectEmits>();
 const timeout = computed(() => (props.remote ? 300 : 0));
-const initialOption = findOption(props.modelValue);
+let initialOption = findOption(props.modelValue);
 const states = reactive<SelectStates>({
   inputValue: initialOption ? initialOption.label : '',
   selectedOption: initialOption,
@@ -139,6 +139,12 @@ watch(
     filteredOptions.value = newOptions;
   }
 );
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    initialOption = findOption(newVal);
+  }
+);
 const generateFilterOptions = async (searchValue: string) => {
   if (!props.filterable) return;
   if (props.filterMethod && isFunction(props.filterMethod)) {
@@ -165,7 +171,6 @@ const generateFilterOptions = async (searchValue: string) => {
 };
 const onFilter = () => {
   generateFilterOptions(states.inputValue);
-
 };
 const debounceOnFilter = debounce(() => {
   onFilter();

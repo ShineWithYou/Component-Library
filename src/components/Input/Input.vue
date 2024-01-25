@@ -94,10 +94,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, computed, useAttrs, nextTick } from 'vue';
+import { ref, watch, computed, useAttrs, nextTick, inject } from 'vue';
 import type { Ref } from 'vue';
 import type { InputProps, InputEmits } from './types';
 import Icon from '../Icon/Icon.vue';
+import {formItemContextKey} from '../Form/types';
 defineOptions({
   name: 'zytInput',
   inheritAttrs: false,
@@ -112,7 +113,11 @@ const innerValue = ref(props.modelValue);
 const isFocus = ref(false);
 const passwordVisible = ref(false);
 const inputRef = ref() as Ref<HTMLInputElement>;
+const formItemContext = inject(formItemContextKey);
 
+const runValidation = (trigger?: string) => {
+  formItemContext?.validate(trigger);
+}
 const showClear = computed(
   () =>
     props.clearable && !props.disabled && !!innerValue.value && isFocus.value
@@ -130,9 +135,11 @@ const keepFocus = async () => {
 const handleInput = () => {
   emits('update:modelValue', innerValue.value);
   emits('input', innerValue.value);
+  runValidation('input');
 };
 const handleChange = () => {
   emits('change', innerValue.value);
+  runValidation('change');
 };
 const handleFocus = (event: FocusEvent) => {
   isFocus.value = true;
@@ -141,6 +148,7 @@ const handleFocus = (event: FocusEvent) => {
 const handleBlur = (event: FocusEvent) => {
   isFocus.value = false;
   emits('blur', event);
+  runValidation('blur');
 };
 const clear = () => {
   innerValue.value = '';
