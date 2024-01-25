@@ -45,7 +45,7 @@ const validateStatue = reactive({
   errorMsg: '',
   loading: false,
 });
-let initialValue = null;
+let initialValue: any = null;
 const innerValue = computed(() => {
   const model = formContext?.model;
   if (model && props.prop && !isNil(model[props.prop])) {
@@ -71,7 +71,7 @@ const getTriggeredRules = (trigger?: string) => {
     return [];
   }
 };
-const validate = (trigger?: string) => {
+const validate = async (trigger?: string) => {
   const modelName = props.prop;
   const triggeredRules = getTriggeredRules(trigger);
   if (triggeredRules.length === 0) {

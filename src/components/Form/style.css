@@ -1,0 +1,50 @@
+.zyt-form {
+  --zyt-form-label-font-size: var(--zyt-font-size-base);
+  --zyt-form-content-font-size: var(--zyt-font-size-base);
+}
+.zyt-form-item {
+  display: flex;
+  margin-bottom: 18px;
+  .zyt-form-item__label {
+    width: 150px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: flex-end;
+    font-size: var(--zyt-form-label-font-size);
+    color: var(--zyt-text-color-regular);
+  }
+  .zyt-form-item__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    line-height: 32px;
+    font-size: var(--zyt-form-content-font-size);
+    min-width: 0;
+    position: relative;
+  }
+  .zyt-form-item__error-msg {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 2px;
+    color: var(--zyt-color-danger);
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+.zyt-form-item.is-error .zyt-input__wrapper {
+  box-shadow: 0 0 0 1px var(--zyt-color-danger) inset;
+}
+.zyt-form-item.is-success .zyt-input__wrapper {
+  box-shadow: 0 0 0 1px var(--zyt-color-success) inset;
+}
+.zyt-form-item.is-required > .zyt-form-item__label::before {
+  content: "*";
+  color: var(--zyt-color-danger);
+  margin-right: 4px;
+}
