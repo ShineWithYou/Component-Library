@@ -3,16 +3,13 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
+  name: "ZYT Component Project"
+  text: "A Component Library"
   tagline: My great project tagline
   actions:
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
     - theme: alt
       text: API Examples
-      link: /api-examples
+      link: /components/button
 
 features:
   - title: Feature A

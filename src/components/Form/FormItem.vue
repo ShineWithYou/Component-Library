@@ -2,9 +2,9 @@
   <div
     class="zyt-form-item"
     :class="{
-      'is-error': validateStatue.state === 'error',
-      'is-success': validateStatue.state === 'success',
-      'is-loading': validateStatue.loading,
+      'is-error': validateStatus.state === 'error',
+      'is-success': validateStatus.state === 'success',
+      'is-loading': validateStatus.loading,
     }"
   >
     <label class="zyt-form-item__label">
@@ -16,9 +16,9 @@
       <slot :validate="validate" />
       <div
         class="zyt-form-item__error-msg"
-        v-if="validateStatue.state === 'error'"
+        v-if="validateStatus.state === 'error'"
       >
-        {{ validateStatue.errorMsg }}
+        {{ validateStatus.errorMsg }}
       </div>
     </div>
   </div>
@@ -27,12 +27,21 @@
 <script setup lang="ts">
 import { isNil } from 'lodash';
 import Schema from 'async-validator';
-import { provide, inject, computed, reactive, onMounted, onUnmounted } from 'vue';
+import {
+  provide,
+  inject,
+  computed,
+  reactive,
+  onMounted,
+  onUnmounted,
+} from 'vue';
 import { formContextKey, formItemContextKey } from './types';
 import type {
   FormItemProps,
   FormValidateFailure,
   FormItemContext,
+  ValidateStatusProp,
+  FormItemInstance,
 } from './types';
 defineOptions({
   name: 'zytFormItem',
@@ -40,7 +49,7 @@ defineOptions({
 const props = defineProps<FormItemProps>();
 
 const formContext = inject(formContextKey);
-const validateStatue = reactive({
+const validateStatus: ValidateStatusProp = reactive({
   state: 'init',
   errorMsg: '',
   loading: false,
@@ -81,37 +90,37 @@ const validate = async (trigger?: string) => {
     const validator = new Schema({
       [modelName]: triggeredRules,
     });
-    validateStatue.loading = true;
+    validateStatus.loading = true;
     return validator
       .validate({ [modelName]: innerValue.value })
       .then(() => {
-        validateStatue.state = 'success';
+        validateStatus.state = 'success';
         console.log('no error');
       })
       .catch((err: FormValidateFailure) => {
         const { errors } = err;
-        validateStatue.state = 'error';
-        validateStatue.errorMsg =
+        validateStatus.state = 'error';
+        validateStatus.errorMsg =
           errors && errors.length > 0 ? errors[0].message || '' : '';
         return Promise.reject(err);
       })
       .finally(() => {
-        validateStatue.loading = false;
+        validateStatus.loading = false;
       });
   }
 };
 const clearValidate = () => {
-  validateStatue.state = 'init';
-  validateStatue.loading = false;
-  validateStatue.errorMsg = '';
-}
+  validateStatus.state = 'init';
+  validateStatus.loading = false;
+  validateStatus.errorMsg = '';
+};
 const resetField = () => {
   clearValidate();
   const model = formContext?.model;
   if (model && props.prop && isNil(model[props.prop])) {
     model[props.prop] = initialValue;
   }
-}
+};
 const context: FormItemContext = {
   prop: props.prop || '',
   validate,
@@ -125,8 +134,15 @@ onMounted(() => {
     formContext?.addField(context);
     initialValue = innerValue.value;
   }
-})
+});
 onUnmounted(() => {
   formContext?.removeField(context);
-})
+});
+
+defineExpose<FormItemInstance>({
+  validateStatus,
+  validate,
+  resetField,
+  clearValidate,
+});
 </script>

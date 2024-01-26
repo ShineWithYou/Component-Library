@@ -18,6 +18,12 @@ export interface FormProps {
   rules: formRules;
 }
 
+export interface ValidateStatusProp {
+    state: 'init' | 'success' | 'error';
+    errorMsg: string;
+    loading: boolean;
+}
+
 export interface FormContext extends FormProps {
     addField: (field: FormItemContext) => void;
     removeField: (field: FormItemContext) => void;
@@ -25,7 +31,7 @@ export interface FormContext extends FormProps {
 
 export interface FormItemContext {
   prop: string;  
-  validate: (trigger?: string) => any;
+  validate: (trigger?: string) => Promise<any>;
   clearValidate(): void;
   resetField(): void;
 }
@@ -39,6 +45,13 @@ export interface FormInstance {
     validate: () => Promise<any>;
     clearValidate: (props?: string[]) => void;
     resetFields: (props?: string[]) => void;
+}
+
+export interface FormItemInstance {
+    validateStatus: ValidateStatusProp;
+    validate: (trigger?: string) => Promise<any>;
+    clearValidate(): void;
+    resetField(): void;
 }
 
 export const formContextKey: InjectionKey<FormContext> =

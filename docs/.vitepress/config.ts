@@ -23,17 +23,10 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Examples', link: '/components/button' }
     ],
 
     sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      },
       {
         text: 'Button',
         items: [
@@ -44,6 +37,24 @@ export default defineConfig({
         text: 'Input',
         items: [
           {text: 'Input', link: '/components/input'}
+        ]
+      },
+      {
+        text: 'Select',
+        items: [
+          {text: 'Select', link: '/components/select'}
+        ]
+      },
+      {
+        text: 'Switch',
+        items: [
+          {text: 'Switch', link: '/components/switch'}
+        ]
+      },
+      {
+        text: 'Form',
+        items: [
+          {text: 'Form', link: '/components/form'}
         ]
       }
     ],
