@@ -13,6 +13,7 @@
       :popoer-options="popperOptions"
       manual
       @click-outside="controlDropdown(false)"
+      :need-auto-close="false"
       ref="tooltipRef"
     >
       <Input

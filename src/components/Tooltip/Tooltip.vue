@@ -31,6 +31,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
   placement: 'bottom',
   trigger: 'hover',
   transition: 'fade',
+  needAutoClose: true,
   openDelay: 0,
   closeDelay: 0
 });
@@ -83,7 +84,9 @@ const changePopper = () => {
 const attachEvent = () => {
   if (props.trigger === 'hover') {
     events['mouseenter'] = finalOpenDebounce;
-    outerEvents['mouseleave'] = finalCloseDebounce;
+    if (props.needAutoClose) {
+      outerEvents['mouseleave'] = finalCloseDebounce;
+    }
   } else {
     events['click'] = changePopper;
   }

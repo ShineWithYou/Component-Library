@@ -13,7 +13,7 @@ export interface SelectProps {
   modelValue: string;
   options?: SelectOption[];
   placeholder: string;
-  disabled: boolean;
+  disabled?: boolean;
   clearable?: boolean;
   renderLabel?: RenderLabelFunc;
   filterable?: boolean;
