@@ -9,7 +9,6 @@ const test = ref('')
     <template #prepend>Https://</template>
     <template #append>.com</template>
   </Input>
-
   <Input v-model="test" placeholder="prefix suffix">
     <template #prefix>
       <Icon icon="fa-user" />

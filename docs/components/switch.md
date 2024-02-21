@@ -35,3 +35,18 @@ description: Switch 组件的文档
 使用 **active-text** 属性与 **inactive-text** 属性来设置开关的文字描述。
 
 <preview path="../demo/Switch/Text.vue" title="支持文字描述" description="Switch 文字描述"></preview>
+
+
+### Switch Attributes
+
+| Name                          | Description                                                                                                                                     | Type                                             | Default |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------- |
+| model-value / v-model         | 绑定值,  `active-value`  `inactive-value` `boolean`                             | `'boolean' \| 'string' \| 'number'`               | false   |
+| disabled                      | 是否禁用	                                                                                                                      | `boolean`                                       | false   |
+| size                          | switch 的大小	                                                                                                                                  | `'large' \| 'small'`   | ''      |
+| active-text                   | switch 打开时的文字描述                                                                                                               | `string`                                        | ''      |
+| inactive-text                 | switch 关闭时的文字描述                                                                                                              | `string`                                        | ''      |
+| active-value                  | `on`                                                                                                                  | `boolean` / `string` / `number`               | true    |
+| inactive-value                | `off`                                                                                                             | `boolean` / `string` / `number`               | false   |
+| name                          | switch 对应的 name 属性	                                                                                                                            | `string`                                        | ''      |
+| id                            | input 的 id	                                                                                                                                    | `string`                                        | —       |
