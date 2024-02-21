@@ -28,39 +28,19 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Button',
+        text: 'Basic Component',
         items: [
-          {text: 'Button', link: '/components/button'}
+          {text: 'Button 按钮', link: '/components/button'},
+          {text: 'Input 输入框', link: '/components/input'},
+          {text: 'Select 选择器', link: '/components/select'},
+          {text: 'Switch 开关', link: '/components/switch'},
+          {text: 'Form 表单', link: '/components/form'}
         ]
       },
-      {
-        text: 'Input',
-        items: [
-          {text: 'Input', link: '/components/input'}
-        ]
-      },
-      {
-        text: 'Select',
-        items: [
-          {text: 'Select', link: '/components/select'}
-        ]
-      },
-      {
-        text: 'Switch',
-        items: [
-          {text: 'Switch', link: '/components/switch'}
-        ]
-      },
-      {
-        text: 'Form',
-        items: [
-          {text: 'Form', link: '/components/form'}
-        ]
-      }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/ShineWithYou/Component-Library' }
     ]
   }
 })
