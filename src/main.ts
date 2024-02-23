@@ -4,7 +4,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import App from './App.vue'
 
 library.add(fas);
-// import './assets/main.css'
 import './styles/index.css'
 
 
