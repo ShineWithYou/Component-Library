@@ -11,7 +11,9 @@ const options = [
 </script>
 
 <template>
-  <Dropdown placement="bottom" :menu-options="options">
-    <Button plain>Test plain</Button>
-  </Dropdown>
+  <div class="vp-raw">
+    <Dropdown placement="bottom" :menu-options="options">
+      <Button plain>Test plain</Button>
+    </Dropdown>
+  </div>
 </template>

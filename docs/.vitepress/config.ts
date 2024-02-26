@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, postcssIsolateStyles } from 'vitepress'
 import { fileURLToPath, URL } from 'url'
 import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
 
@@ -10,6 +10,13 @@ export default defineConfig({
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('../../src', import.meta.url))
+      }
+    },
+    css: {
+      postcss: {
+        plugins: [postcssIsolateStyles({
+          includeFiles: [/vp-doc\.css/]
+        })]
       }
     }
   },

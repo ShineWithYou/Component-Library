@@ -6,6 +6,7 @@
       :popper-options="popperOptions"
       :open-delay="openDelay"
       :close-delay="closeDelay"
+      :need-auto-close="false"
       @visible-change="visibleChange"
       ref="tooltipRef"
     >
