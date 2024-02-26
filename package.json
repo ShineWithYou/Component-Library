@@ -1,31 +1,49 @@
 {
-  "name": "component-library",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@shinewithyou/zyt-element",
+  "version": "1.0.0",
+  "description": "zyt vue3 components library",
   "type": "module",
+  "author": "Shine Chou",
+  "license": "MIT",
+  "keywords": ["Element", "Vue3"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShineWithYou/Component-Library"
+  },
   "files": [
     "dist"
   ],
+  "sideEffects": ["dist/style.css"], 
   "main": "./dist/umd/zyt-element.umd.cjs",
   "module": "./dist/es/zyt-element.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/es/zyt-element.js",
+<<<<<<< HEAD
       "require": "./dist/umd/zyt-element.umd.cjs",
       "types": "./dist/types/index.d.ts"
+=======
+      "require": "./dist/umd/zyt-element.umd.cjs"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+>>>>>>> 7ad2cfec353eb8ecd0ba7ea8a539871414644f56
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:es && npm run build:umd",
+    "build": "npm run build:es && npm run build:umd && npm run move-style",
     "build:only": "vite build",
     "build:umd": "vite build --config vite.umd.config.ts",
     "build:es": "vite build --config vite.es.config.ts",
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "move-style": "move-file dist/es/style.css dist/style.css",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -33,7 +51,9 @@
     "@fortawesome/vue-fontawesome": "^3.0.5",
     "@popperjs/core": "^2.11.8",
     "async-validator": "^4.2.5",
-    "lodash-es": "^4.17.21",
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -51,6 +71,7 @@
     "eslint-plugin-vue": "^9.17.0",
     "jsdom": "^23.0.1",
     "postcss": "^8.4.35",
+    "move-file-cli": "^3.0.0",
     "postcss-color-mix": "^1.1.0",
     "postcss-comment": "^2.0.0",
     "postcss-each": "^1.1.0",
@@ -63,6 +84,7 @@
     "vite-plugin-eslint": "^1.8.1",
     "vitepress": "^1.0.0-rc.44",
     "vitest": "^1.0.4",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^1.8.5",
+    "vue": "^3.3.4"
   }
 }
